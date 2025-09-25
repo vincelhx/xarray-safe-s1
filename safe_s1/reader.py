@@ -668,7 +668,7 @@ class Sentinel1Reader:
             pol = os.path.basename(xml_file).split("-")[4].upper()
             pols.append(pol)
             tmp.append(luts_ds)
-        ds = xr.concat(tmp, pd.Index(pols, name="pol"))
+        ds = xr.concat(tmp, pd.Index(pols, name="pol").astype(np.str_))
         # ds.attrs = {'description':
         #                                 'original (ie not interpolation) xr.Dataset sigma0 and gamma0 Look Up Tables'}
         return ds
