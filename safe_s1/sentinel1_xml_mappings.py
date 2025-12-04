@@ -779,14 +779,14 @@ def df_files(annotation_files, measurement_files, noise_files, calibration_files
         for f in annotation_files
     ]
     dsid = [os.path.basename(f).split("-")[1].upper() for f in annotation_files]
-
     # check that dsid are spatialy uniques (i.e. there is only one dsid per geographic position)
     # some SAFES like WV, dsid are not uniques ('WV1' and 'WV2')
     # we want them uniques, and compatibles with gdal sentinel driver (ie 'WV_012')
     pols_count = len(set(pols))
     subds_count = len(annotation_files) // pols_count
     dsid_count = len(set(dsid))
-    if dsid_count != subds_count:
+    # if dsid_count != subds_count:
+    if "WV" in dsid[0]:
         dsid_rad = dsid[0][:-1]  # WV
         dsid = ["%s_%03d" % (dsid_rad, n) for n in num]
         assert (

@@ -1,17 +1,14 @@
-
 [![Documentation Status](https://readthedocs.org/projects/xarray-safe-s1/badge/?version=latest)](https://xarray-safe-s1.readthedocs.io/en/latest/?badge=latest)
 
 # xarray-safe-s1
 
 Xarray Sentinel1 python SAFE files reader
 
- 
-
 # Install
 
 ## Conda
 
-1) Install xarray-safe-s1
+1. Install xarray-safe-s1
 
 ```
 conda create -n safe_s1
@@ -19,17 +16,15 @@ conda activate safe_s1
 conda install -c conda-forge xarray-safe-s1
 ```
 
-
 ## Pypi
 
-1) Install xarray-safe-s1
+1. Install xarray-safe-s1
 
 ```
 conda create -n safe_s1
 conda activate safe_s1
 pip install xarray-safe-s1
 ```
-
 
 ```pycon
 >>> from safe_s1 import Sentinel1Reader, sentinel1_xml_mappings
@@ -115,7 +110,7 @@ DataTree('None', parent=None)
 │       Dimensions:          (burst: 0)
 │       Dimensions without coordinates: burst
 │       Data variables:
-│           azimuthTime      (burst) float64 
+│           azimuthTime      (burst) float64
 │           linesPerBurst    int64 0
 │           samplesPerBurst  int64 0
 │       Attributes:
@@ -132,13 +127,13 @@ DataTree('None', parent=None)
 ├── DataTree('noise_azimuth_raw')
 │       Dimensions:       (swath: 0, pol: 2)
 │       Coordinates:
-│         * swath         (swath) float64 
+│         * swath         (swath) float64
 │         * pol           (pol) object 'VV' 'VH'
 │       Data variables:
-│           line_start    (pol, swath) int64 
-│           line_stop     (pol, swath) int64 
-│           sample_start  (pol, swath) int64 
-│           sample_stop   (pol, swath) int64 
+│           line_start    (pol, swath) int64
+│           line_stop     (pol, swath) int64
+│           sample_start  (pol, swath) int64
+│           sample_stop   (pol, swath) int64
 │       Attributes:
 │           history:  noise_lut_azi_raw_grd:\n  annotation/calibration/noise.xml:\n  ...
 └── DataTree('noise_range_raw')

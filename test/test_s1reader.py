@@ -1,15 +1,18 @@
-from safe_s1 import sentinel1_xml_mappings, Sentinel1Reader, getconfig
 import logging
 
+from safe_s1 import Sentinel1Reader, getconfig, sentinel1_xml_mappings
 
 logging.basicConfig()
 logging.captureWarnings(True)
 
-logger = logging.getLogger('s1_reader_test')
+logger = logging.getLogger("s1_reader_test")
 logger.setLevel(logging.DEBUG)
 
 conf = getconfig.get_config()
-products = [sentinel1_xml_mappings.get_test_file(filename) for filename in conf['product_paths']]
+products = [
+    sentinel1_xml_mappings.get_test_file(filename) for filename in conf["product_paths"]
+]
+
 
 # Try to apply the reader on different products
 def test_reader():
@@ -23,11 +26,5 @@ def test_reader():
             for ds in dt:
                 dt[ds].to_dataset().compute()
         assert True
-    except:
+    except IOError:
         assert False
-
-
-
-
-
-
