@@ -1,5 +1,4 @@
 import logging
-import pdb
 import time
 
 from safe_s1 import Sentinel1Reader, getconfig

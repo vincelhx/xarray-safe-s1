@@ -26,5 +26,5 @@ def test_reader():
             for ds in dt:
                 dt[ds].to_dataset().compute()
         assert True
-    except:
+    except IOError:
         assert False
